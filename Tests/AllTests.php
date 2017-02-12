@@ -29,7 +29,9 @@ class AllTests
     {
         $this->classesToTest = [
             new \PHPKoans\Chapters\ChapterArrayBasic(),
-            new \PHPKoans\Chapters\ChapterArrayFunction()
+            new \PHPKoans\Chapters\ChapterArrayFunction1(),
+            new \PHPKoans\Chapters\ChapterArrayFunction2(),
+            new \PHPKoans\Chapters\ChapterArrayFunction3(),
         ];
     }
 
