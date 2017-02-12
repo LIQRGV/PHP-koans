@@ -6,7 +6,7 @@ use PHPKoans\Tests\Chapter as Chapter;
 /**
  *
  */
-class ChapterArray extends Chapter
+class ChapterArrayBasic extends Chapter
 {
     /**
      * Exercise 1.1
@@ -63,12 +63,13 @@ class ChapterArray extends Chapter
     public function __construct()
     {
         $this->number = 1;
-        $this->name = 'Variables';
+        $this->name = 'Basic Array';
 
         $this->exerciseTests = [
             'declareAnArray' => function () {
                 $result = $this->declareAnArray();
                 if (!is_array($result)) {
+                    // echo "${anyArray} bukan array.";
                     throw new \Exception('$anyArray bukan array.');
                 }
             },
