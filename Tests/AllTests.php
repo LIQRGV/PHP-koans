@@ -1,17 +1,11 @@
 <?php
 namespace PHPKoans\Tests;
 
-use League\CLImate\CLImate as Terminal;
-
 /**
  * Implementing and tracking all chapters we're testing on
  */
 class AllTests
 {
-    /**
-     * @var Terminal Pretty output for our terminal
-     */
-    private $terminal;
 
     /**
      * @var array Instances of classes that we're testing
@@ -33,11 +27,9 @@ class AllTests
      */
     public function __construct()
     {
-        $this->terminal = new Terminal();
-
         $this->classesToTest = [
             new \PHPKoans\Chapters\ChapterArrayBasic(),
-            new \PHPKoans\Chapters\ChapterArrayFunction(),
+            new \PHPKoans\Chapters\ChapterArrayFunction()
         ];
     }
 
@@ -46,6 +38,7 @@ class AllTests
      */
     public function testChapters()
     {
+        $incomplete = false;
         // Test our chapters and keep track of where we are
         foreach ($this->classesToTest as $class) {
             $chapter = new \PHPKoans\Tests\KoansTest($class);
@@ -75,9 +68,9 @@ class AllTests
      */
     public function outputHeader()
     {
-        $this->terminal->br();
-        $this->terminal->green()->out('| PHP Koans |');
-        $this->terminal->br();
+        echo "<br/>";
+        echo "PHP Koans";
+        echo "<br/>";
     }
 
     /**
@@ -88,10 +81,10 @@ class AllTests
         $percentComplete = $this->percentComplete();
 
         if ($percentComplete < 100) {
-            $this->terminal->green()->out('PHP Koans are '.$percentComplete.'% Complete. Keep at it!');
+            echo 'Progress PHP Koans'.$percentComplete.'% Complete. Semangat!';
         } else {
-            $this->terminal->green()->out('ALL DONE');
+            echo "ALL DONE";
         }
-        $this->terminal->br();
+        echo "<br/>";
     }
 }

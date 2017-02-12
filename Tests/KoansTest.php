@@ -1,8 +1,6 @@
 <?php
 namespace PHPKoans\Tests;
 
-use League\CLImate\CLImate as Terminal;
-
 /**
  * Test exercises in a chapter
  */
@@ -40,13 +38,12 @@ class KoansTest
      */
     private function finishChapter($exerciseErrorMessage)
     {
-        $terminal = new Terminal();
-
-        $terminal->bold()->out("  Chapter ".$this->chapter->number.": ".$this->chapter->name."\n");
-        $terminal->out($exerciseErrorMessage);
-        $terminal->br();
-        $terminal->out('  Chapter '.$this->chapter->number.' is '.$this->percentComplete().'% complete.');
-        $terminal->br();
+        echo "  Chapter ".$this->chapter->number.": ".$this->chapter->name."\n";
+        echo "<br />";
+        echo $exerciseErrorMessage;
+        echo "<br />";
+        echo '  Chapter '.$this->chapter->number.' is '.$this->percentComplete().'% complete.';
+        echo "<br />";
 
         throw new \Exception();
     }
@@ -121,9 +118,9 @@ class KoansTest
      */
     private function formatFailingException(\Exception $exception, $failingTestFunctionName)
     {
-        $errorMessage = '    Example '.$this->chapter->number.'.'.($this->exercisesCompleted + 1).' needs a solution.'."\n";
+        $errorMessage = '    Example '.$this->chapter->number.'.'.($this->exercisesCompleted + 1).' membutuhkan solusi.'."\n";
         $errorMessage .= '    '.$exception->getMessage()."\n";
-        $errorMessage .= '    Edit '.$exception->getFile().':'.$failingTestFunctionName.'() to fix this.';
+        $errorMessage .= '    Edit '.$exception->getFile().':'.$failingTestFunctionName.'() untuk memperbaiki.';
 
         return $errorMessage;
     }
