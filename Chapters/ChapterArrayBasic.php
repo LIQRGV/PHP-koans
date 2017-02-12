@@ -69,13 +69,12 @@ class ChapterArrayBasic extends Chapter
             'declareAnArray' => function () {
                 $result = $this->declareAnArray();
                 if (!is_array($result)) {
-                    // echo "${anyArray} bukan array.";
                     throw new \Exception('$anyArray bukan array.');
                 }
             },
             'declareSpecificArray' => function () {
                 $result = $this->declareSpecificArray();
-                if ($result[0] == [1,2,3]) {
+                if ($result != [1,2,3]) {
                     throw new \Exception('$specificArray tidak sesuai.');
                 }
             },
@@ -84,19 +83,19 @@ class ChapterArrayBasic extends Chapter
                 if (!isset($result[0])) {
                     throw new \Exception('$indexedArray tidak memiliki index 0.');
                 }
-                if ($result[0] == 1) {
+                if ($result[0] != 1) {
                     throw new \Exception('$indexedArray[0] tidak sesuai.');
                 }
                 if (!isset($result[0])) {
                     throw new \Exception('$indexedArray tidak memiliki index 1.');
                 }
-                if ($result[1] == "apel") {
+                if ($result[1] != "apel") {
                     throw new \Exception('$indexedArray[1] tidak sesuai.');
                 }
                 if (!isset($result[0])) {
                     throw new \Exception('$indexedArray tidak memiliki index "item".');
                 }
-                if ($result["item"] == 3) {
+                if ($result["item"] != 3) {
                     throw new \Exception('$indexedArray["item"] tidak sesuai.');
                 }
 
